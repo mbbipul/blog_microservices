@@ -28,7 +28,7 @@ app.post('/events', (req,res) => {
 
     }
 
-    if(type === "CommentModerated"){
+    if(type === "CommentUpdated"){
         const { id,content,postId,status } = data;
         
         const post = posts[postId] ;
@@ -40,6 +40,7 @@ app.post('/events', (req,res) => {
         comment.comment = content;
         
     }
+    console.log('Recieve Event :', req.body.type);
     console.log(posts);
 
     res.send({});
